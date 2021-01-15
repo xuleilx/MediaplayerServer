@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<node name="/com/hsae/mediaplayerserver">
+    <!--mediaplayer-->
+    <interface name="com.hsae.mediaplayerserver.mediaplayer">
+        <!--control-->
+        <method name="start">
+            <arg name="ret" type="b" direction="out"/>
+        </method>
+        <method name="pause">
+            <arg name="ret" type="b" direction="out"/>
+        </method>
+        <method name="stop">
+            <arg name="ret" type="b" direction="out"/>
+        </method>
+        <method name="seek">
+            <arg name="secs" type="u" direction="in"/>
+            <arg name="ret" type="b" direction="out"/>
+        </method>
+        <method name="setRate">
+            <arg name="rate" type="d" direction="in"/>
+            <arg name="ret" type="b" direction="out"/>
+        </method>
+        <method name="setFile">
+            <arg name="filepath" type="s" direction="in"/>
+            <arg name="ret" type="b" direction="out"/>
+        </method>
+        <!--notify-->>
+        <signal name="notifyProgress">
+            <arg name="position" type="u"/>
+            <arg name="duration" type="u"/>
+        </signal>
+        <signal name="notifyError">
+            <arg name="messge" type="s"/>
+        </signal>
+        <signal name="notifyEOS">
+        </signal>
+    </interface>
+
+    <!--mediainfo-->
+    <interface name="com.hsae.mediaplayerserver.mediainfo">
+        <!--method-->
+        <method name="getTags">
+            <arg name="filePath" type="s" direction="in"/>
+            <arg name="title" type="s" direction="out"/>
+            <arg name="artist" type="s" direction="out"/>
+            <arg name="album" type="s" direction="out"/>
+        </method>
+        <method name="getImage">
+            <arg name="filePath" type="s" direction="in"/>
+            <arg name="imagePath" type="s" direction="in"/>
+        </method>
+    </interface>
+</node>

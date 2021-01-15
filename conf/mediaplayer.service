@@ -1,0 +1,13 @@
+[Unit]
+Description=mediaplayer service
+Requires=dbus-session.service 
+#After=pvr.service dbus-session.service 
+
+[Service]
+#EnvironmentFile=-/etc/mediaplayerserver.conf
+ExecStart=/home/xuleilx/work/AppleCarPlay_manifest/MediaStream/MediaplayerServer/build/mediaplayerserver
+#Restart=on-failure
+StandardOutput=tty
+
+[Install]
+WantedBy=multi-user.target

@@ -1,0 +1,1 @@
+gdbus-codegen --generate-c-code=GDBusMediaplayerServer --interface-prefix=com.hsae.mediaplayerserver com.hsae.mediaplayerserver.xml
