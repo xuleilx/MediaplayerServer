@@ -1,6 +1,7 @@
 #include "DBusCallbacks.h"
 #include "Log.h"
 #include "MediaInfo.h"
+#include <functional>   // std::bind
 
 #define MEDIAPLAYER_DBUS_NAME "com.hsae.mediaplayerserver.mediaplayer"
 #define MEDIAPLAYER_DBUS_OBJECT_PATH "/com/hsae/mediaplayerserver"
@@ -9,7 +10,7 @@
 
 static const std::string TAG = "DBusCallbacks";
 
-DBusCallbacks::DBusCallbacks() : mMediaplayerInterface(nullptr), mMediainfoInterface(nullptr), mLoop(nullptr) {}
+DBusCallbacks::DBusCallbacks() : mMediaplayerInterface(nullptr), mMediainfoInterface(nullptr), mLoop(nullptr) {mMediaPlayer=nullptr;}
 DBusCallbacks::~DBusCallbacks()
 {
     if (mMediaplayerInterface)
